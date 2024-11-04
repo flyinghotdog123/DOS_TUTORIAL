@@ -11,21 +11,23 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            background-color: #f5f5f5;
         }
         h1 {
             color: #333;
             text-align: center;
+            margin-bottom: 30px;
         }
         .buttons {
             display: flex;
-            flex-direction: column;  /* 여기를 column으로 변경 */
-            gap: 15px;  /* 간격을 조금 늘림 */
+            flex-direction: column;
+            gap: 15px;
             margin-bottom: 20px;
-            width: 80%;  /* 버튼들의 전체 너비 설정 */
-            max-width: 500px;  /* 최대 너비 제한 */
+            width: 80%;
+            max-width: 500px;
         }
         .button {
-            padding: 15px 20px;  /* 패딩을 조금 늘림 */
+            padding: 15px 20px;
             font-size: 16px;
             cursor: pointer;
             background-color: #4CAF50;
@@ -34,11 +36,14 @@
             border-radius: 5px;
             text-decoration: none;
             text-align: center;
-            display: block;  /* inline-block에서 block으로 변경 */
-            transition: background-color 0.3s;  /* 호버 효과를 부드럽게 */
+            display: block;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .button:hover {
             background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
     </style>
 </head>
@@ -47,7 +52,7 @@
     <div class="buttons">
         <a href="https://youtube.com/shorts/xeTMu9zuC7g?si=GM7heRNNwJrG_-bb" class="button" target="_blank">1층 라이브 버츄얼 스튜디오</a>
         <a href="https://youtube.com/shorts/xeTMu9zuC7g?si=GM7heRNNwJrG_-bb" class="button" target="_blank">2층 스튜디오</a>
-        <a href="https://youtube.com/shorts/le3Nv-XYFqQ?feature=share" class="button" target="_blank">3층 스튜디오</a>
+        <a href="3rd-floor-studio.html" class="button">3층 스튜디오</a>
         <a href="https://youtube.com/shorts/le3Nv-XYFqQ?feature=share" class="button" target="_blank">3층 PBL실</a>
     </div>
 </body>
