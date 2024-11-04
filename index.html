@@ -14,14 +14,18 @@
         }
         h1 {
             color: #333;
+            text-align: center;
         }
         .buttons {
             display: flex;
-            gap: 10px;
+            flex-direction: column;  /* 여기를 column으로 변경 */
+            gap: 15px;  /* 간격을 조금 늘림 */
             margin-bottom: 20px;
+            width: 80%;  /* 버튼들의 전체 너비 설정 */
+            max-width: 500px;  /* 최대 너비 제한 */
         }
         .button {
-            padding: 10px 20px;
+            padding: 15px 20px;  /* 패딩을 조금 늘림 */
             font-size: 16px;
             cursor: pointer;
             background-color: #4CAF50;
@@ -29,7 +33,9 @@
             border: none;
             border-radius: 5px;
             text-decoration: none;
-            display: inline-block;
+            text-align: center;
+            display: block;  /* inline-block에서 block으로 변경 */
+            transition: background-color 0.3s;  /* 호버 효과를 부드럽게 */
         }
         .button:hover {
             background-color: #45a049;
