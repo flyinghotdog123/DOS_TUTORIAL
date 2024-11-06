@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2층 스튜디오 매뉴얼 - 온라인학교 장비 매뉴얼</title>
     <style>
+        /* 이전 스타일 유지 */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -41,7 +42,7 @@
             height: auto;
             z-index: 1;
         }
-        
+
         h1 {
             color: #333;
             text-align: center;
@@ -51,7 +52,7 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .buttons {
             display: flex;
             flex-direction: column;
@@ -62,6 +63,7 @@
             z-index: 1;
             position: relative;
         }
+
         .button {
             padding: 15px 20px;
             font-size: 16px;
@@ -76,23 +78,49 @@
             transition: all 0.3s;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
         .button:hover {
             background-color: #6f5faa;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
+
         .troubleshoot-button {
             background-color: #e67e22;
         }
+
         .troubleshoot-button:hover {
             background-color: #d35400;
         }
+
         .back-button {
             background-color: #666;
             margin-top: 20px;
         }
+
         .back-button:hover {
             background-color: #555;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 9/16;
+            margin: 20px 0;
+            display: none;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .button.active {
+            background-color: #6f5faa;
         }
     </style>
 </head>
@@ -100,11 +128,60 @@
     <img src="https://raw.githubusercontent.com/flyinghotdog123/DOS_TUTORIAL/refs/heads/main/DOS_EMBLEM.png" alt="DOS Emblem" class="background-image">
     <h1>2층 스튜디오</h1>
     <div class="buttons">
-        <a href="https://youtube.com/shorts/grooNQbD0y4?feature=share" class="button">아이패드 조작법</a>
-        <a href="https://youtube.com/shorts/ljs7hVui1kM?feature=share" class="button">무선마이크 사용방법</a>
-        <a href="https://youtube.com/shorts/pgHE_ooXQdE?feature=share" class="button troubleshoot-button">아이패드 터치가 안돼요!</a>
-        <a href="https://youtube.com/shorts/kEObrdFd0_g?feature=share" class="button troubleshoot-button">아이패드로 전원이 안켜져요!</a>
+        <button class="button" onclick="toggleVideo('video1', this, 'grooNQbD0y4')">아이패드 조작법</button>
+        <div class="video-container" id="video1">
+            <iframe id="video1-frame" src="" allowfullscreen></iframe>
+        </div>
+
+        <button class="button" onclick="toggleVideo('video2', this, 'ljs7hVui1kM')">무선마이크 사용방법</button>
+        <div class="video-container" id="video2">
+            <iframe id="video2-frame" src="" allowfullscreen></iframe>
+        </div>
+
+        <button class="button troubleshoot-button" onclick="toggleVideo('video3', this, 'pgHE_ooXQdE')">아이패드 터치가 안돼요!</button>
+        <div class="video-container" id="video3">
+            <iframe id="video3-frame" src="" allowfullscreen></iframe>
+        </div>
+
+        <button class="button troubleshoot-button" onclick="toggleVideo('video4', this, 'kEObrdFd0_g')">아이패드로 전원이 안켜져요!</button>
+        <div class="video-container" id="video4">
+            <iframe id="video4-frame" src="" allowfullscreen></iframe>
+        </div>
+
         <a href="index.html" class="button back-button">뒤로 가기</a>
     </div>
+
+    <script>
+        function toggleVideo(videoId, buttonElement, youtubeId) {
+            // 클릭된 비디오의 컨테이너와 iframe
+            const selectedContainer = document.getElementById(videoId);
+            const selectedFrame = document.getElementById(videoId + '-frame');
+            const isCurrentlyVisible = selectedContainer.style.display === 'block';
+
+            // 모든 비디오 컨테이너를 숨기고, iframe src 초기화하고, 버튼 비활성화
+            const containers = document.getElementsByClassName('video-container');
+            const buttons = document.getElementsByClassName('button');
+            const iframes = document.getElementsByTagName('iframe');
+            
+            for (let container of containers) {
+                container.style.display = 'none';
+            }
+            
+            for (let iframe of iframes) {
+                iframe.src = '';
+            }
+            
+            for (let button of buttons) {
+                button.classList.remove('active');
+            }
+            
+            // 현재 비디오가 보이지 않는 상태였다면 보이게 하고 버튼 활성화
+            if (!isCurrentlyVisible) {
+                selectedContainer.style.display = 'block';
+                selectedFrame.src = `https://www.youtube.com/embed/${youtubeId}`;
+                buttonElement.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
