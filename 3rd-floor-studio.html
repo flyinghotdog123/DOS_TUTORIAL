@@ -13,33 +13,27 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            background-image: url('https://raw.githubusercontent.com/flyinghotdog123/DOS_TUTORIAL/refs/heads/main/DOS_EMBLEM.png');
-            background-size: 120%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
             position: relative;
+            background-color: white;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 150px;
+            height: auto;
+            z-index: 1;
         }
         
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.85);
-            z-index: -1;
-        }
         h1 {
             color: #333;
             text-align: center;
             margin-bottom: 30px;
             padding: 20px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 24px;
         }
+        
         .buttons {
             display: flex;
             flex-direction: column;
@@ -53,7 +47,7 @@
             padding: 15px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #2fb3ca;            ;
+            background-color: #2fb3ca;
             color: white;
             border: none;
             border-radius: 5px;
@@ -84,6 +78,7 @@
     </style>
 </head>
 <body>
+    <img src="https://raw.githubusercontent.com/flyinghotdog123/DOS_TUTORIAL/refs/heads/main/DOS_EMBLEM.png" alt="DOS Emblem" class="background-image">
     <h1>3층 스튜디오 매뉴얼</h1>
     <div class="buttons">
         <a href="https://youtube.com/shorts/grooNQbD0y4?feature=share" class="button" target="_blank">아이패드 조작법</a>
