@@ -15,7 +15,22 @@
             padding: 20px;
             padding-top: 50px;
             position: relative;
-            background-color: white;
+            background-image: url('https://raw.githubusercontent.com/flyinghotdog123/DOS_TUTORIAL/refs/heads/main/DOS_BACKGROUND.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
         }
 
         .background-image {
@@ -33,6 +48,8 @@
             margin-bottom: 30px;
             padding: 20px;
             font-size: 24px;
+            position: relative;
+            z-index: 1;
         }
         
         .buttons {
@@ -43,6 +60,7 @@
             width: 80%;
             max-width: 500px;
             z-index: 1;
+            position: relative;
         }
         .button {
             padding: 15px 20px;
@@ -82,10 +100,10 @@
     <img src="https://raw.githubusercontent.com/flyinghotdog123/DOS_TUTORIAL/refs/heads/main/DOS_EMBLEM.png" alt="DOS Emblem" class="background-image">
     <h1>2층 스튜디오</h1>
     <div class="buttons">
-        <a href="https://youtube.com/shorts/grooNQbD0y4?feature=share" class="button" target="_blank">아이패드 조작법</a>
-        <a href="https://youtube.com/shorts/ljs7hVui1kM?feature=share" class="button" target="_blank">무선마이크 사용방법</a>
-        <a href="https://youtube.com/shorts/pgHE_ooXQdE?feature=share" class="button troubleshoot-button" target="_blank">아이패드 터치가 안돼요!</a>
-        <a href="https://youtube.com/shorts/kEObrdFd0_g?feature=share" class="button troubleshoot-button" target="_blank">아이패드로 전원이 안켜져요!</a>
+        <a href="https://youtube.com/shorts/grooNQbD0y4?feature=share" class="button">아이패드 조작법</a>
+        <a href="https://youtube.com/shorts/ljs7hVui1kM?feature=share" class="button">무선마이크 사용방법</a>
+        <a href="https://youtube.com/shorts/pgHE_ooXQdE?feature=share" class="button troubleshoot-button">아이패드 터치가 안돼요!</a>
+        <a href="https://youtube.com/shorts/kEObrdFd0_g?feature=share" class="button troubleshoot-button">아이패드로 전원이 안켜져요!</a>
         <a href="index.html" class="button back-button">뒤로 가기</a>
     </div>
 </body>
