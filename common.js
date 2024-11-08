@@ -40,7 +40,7 @@ function toggleVideo(videoId, buttonElement, youtubeId) {
     const buttons = document.getElementsByClassName('button');
     const iframes = document.getElementsByTagName('iframe');
     
-    // Hide all containers and reset iframes
+    // iframes 리셋
     for (let container of containers) {
         container.style.display = 'none';
     }
@@ -53,7 +53,6 @@ function toggleVideo(videoId, buttonElement, youtubeId) {
         button.classList.remove('active');
     }
     
-    // Show selected video if it wasn't visible
     if (!isCurrentlyVisible) {
         selectedContainer.style.display = 'block';
         selectedFrame.src = `https://www.youtube.com/embed/${youtubeId}`;
