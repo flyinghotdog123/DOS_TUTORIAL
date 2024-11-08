@@ -4,128 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2층 스튜디오 매뉴얼 - 온라인학교 장비 매뉴얼</title>
-    <style>
-        /* 이전 스타일 유지 */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            padding-top: 50px;
-            position: relative;
-            background-image: url('https://raw.githubusercontent.com/flyinghotdog123/DOS_TUTORIAL/refs/heads/main/DOS_BACKGROUND.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.85);
-            z-index: 0;
-        }
-
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 10px;
-            width: 150px;
-            height: auto;
-            z-index: 1;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            font-size: 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
-            width: 80%;
-            max-width: 500px;
-            z-index: 1;
-            position: relative;
-        }
-
-        .button {
-            padding: 15px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #2fb3ca;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            display: block;
-            transition: all 0.3s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .button:hover {
-            background-color: #6f5faa;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .troubleshoot-button {
-            background-color: #e67e22;
-        }
-
-        .troubleshoot-button:hover {
-            background-color: #d35400;
-        }
-
-        .back-button {
-            background-color: #666;
-            margin-top: 20px;
-        }
-
-        .back-button:hover {
-            background-color: #555;
-        }
-
-        .video-container {
-            width: 100%;
-            max-width: 500px;
-            aspect-ratio: 9/16;
-            margin: 20px 0;
-            display: none;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
-        }
-
-        .button.active {
-            background-color: #6f5faa;
-        }
-    </style>
+    <link rel="stylesheet" href="common.css">
+    <script src="common.js"></script>
 </head>
 <body>
-    <img src="https://raw.githubusercontent.com/flyinghotdog123/DOS_TUTORIAL/refs/heads/main/DOS_EMBLEM.png" alt="DOS Emblem" class="background-image">
     <h1>2층 스튜디오</h1>
     <div class="buttons">
         <button class="button" onclick="toggleVideo('video1', this, 'grooNQbD0y4')">아이패드 조작법</button>
@@ -150,38 +32,5 @@
 
         <a href="index.html" class="button back-button">뒤로 가기</a>
     </div>
-
-    <script>
-        function toggleVideo(videoId, buttonElement, youtubeId) {
-            // 클릭된 비디오의 컨테이너와 iframe
-            const selectedContainer = document.getElementById(videoId);
-            const selectedFrame = document.getElementById(videoId + '-frame');
-            const isCurrentlyVisible = selectedContainer.style.display === 'block';
-
-            // 모든 비디오 컨테이너를 숨기고, iframe src 초기화하고, 버튼 비활성화
-            const containers = document.getElementsByClassName('video-container');
-            const buttons = document.getElementsByClassName('button');
-            const iframes = document.getElementsByTagName('iframe');
-            
-            for (let container of containers) {
-                container.style.display = 'none';
-            }
-            
-            for (let iframe of iframes) {
-                iframe.src = '';
-            }
-            
-            for (let button of buttons) {
-                button.classList.remove('active');
-            }
-            
-            // 현재 비디오가 보이지 않는 상태였다면 보이게 하고 버튼 활성화
-            if (!isCurrentlyVisible) {
-                selectedContainer.style.display = 'block';
-                selectedFrame.src = `https://www.youtube.com/embed/${youtubeId}`;
-                buttonElement.classList.add('active');
-            }
-        }
-    </script>
 </body>
 </html>
