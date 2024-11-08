@@ -117,8 +117,8 @@ h1 {
 .video-container {
     width: 100%;
     max-width: 500px;
-    aspect-ratio: 9/16;
-    margin: 20px 0;
+    aspect-ratio: 16/9;
+    margin: 20px auto;
     display: none;
     z-index: 1;
     transition: all 0.3s ease;
