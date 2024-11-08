@@ -1,4 +1,4 @@
-// 엠블렘
+// DOS 엠블럼
 function insertDOSEmblem() {
     const emblemLink = document.createElement('a');
     emblemLink.href = 'https://online.dge.sc.kr/';
@@ -14,23 +14,6 @@ function insertDOSEmblem() {
 }
 
 // 비디오 토글
-function toggleVideo() {
-    const videoContainer = document.getElementById('videoContainer');
-    const videoButton = document.getElementById('videoButton');
-    const videoFrame = document.getElementById('videoFrame');
-    const videoSrc = videoButton.getAttribute('data-video-src');
-    
-    if (videoContainer.style.display === 'none' || videoContainer.style.display === '') {
-        videoContainer.style.display = 'block';
-        videoFrame.src = videoSrc;
-        videoButton.classList.add('active');
-    } else {
-        videoContainer.style.display = 'none';
-        videoFrame.src = '';
-        videoButton.classList.remove('active');
-    }
-}
-
 function toggleVideo(videoId, buttonElement, youtubeId) {
     const selectedContainer = document.getElementById(videoId);
     const selectedFrame = document.getElementById(videoId + '-frame');
@@ -40,7 +23,6 @@ function toggleVideo(videoId, buttonElement, youtubeId) {
     const buttons = document.getElementsByClassName('button');
     const iframes = document.getElementsByTagName('iframe');
     
-    // iframes 리셋
     for (let container of containers) {
         container.style.display = 'none';
     }
@@ -60,4 +42,39 @@ function toggleVideo(videoId, buttonElement, youtubeId) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', insertDOSEmblem);
+document.addEventListener('DOMContentLoaded', function() {
+    insertDOSEmblem();
+
+    const preventDrag = (e) => {
+        if (e.type === 'touchmove') {  // touchmove일 때만 preventDefault
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    };
+
+    const h1Elements = document.getElementsByTagName('h1');
+    const imgElements = document.getElementsByClassName('background-image');
+    const buttonElements = document.getElementsByClassName('button');
+
+    for(let el of h1Elements) {
+        el.addEventListener('touchstart', preventDrag, {passive: false});
+        el.addEventListener('touchmove', preventDrag, {passive: false});
+        el.addEventListener('touchend', preventDrag, {passive: false});
+    }
+
+    for(let el of imgElements) {
+        el.addEventListener('touchmove', preventDrag, {passive: false});
+    }
+
+    for(let el of buttonElements) {
+        el.addEventListener('touchmove', preventDrag, {passive: false});
+    }
+});
+
+document.addEventListener('contextmenu', function(e) {
+    if(e.target.classList.contains('background-image') || 
+       e.target.tagName === 'H1' || 
+       e.target.classList.contains('button')) {
+        e.preventDefault();
+    }
+});
