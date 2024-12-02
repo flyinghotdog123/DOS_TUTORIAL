@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     insertDOSEmblem();
 
     const preventDrag = (e) => {
-        if (e.type === 'touchmove') {  // touchmove일 때만 preventDefault
+        if (e.type === 'touchmove') {
             e.preventDefault();
             e.stopPropagation();
         }
