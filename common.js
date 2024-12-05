@@ -33,7 +33,7 @@ function toggleVideo(videoId, buttonElement, youtubeId) {
     
     for (let button of buttons) {
         button.classList.remove('active');
-    }
+    } 
     
     if (!isCurrentlyVisible) {
         selectedContainer.style.display = 'block';
